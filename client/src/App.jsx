@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/home';
 import EditorPage from './pages/editorpage';
 import Navbar from './components/navbar';
-import Footer from './components/footer';
+import Footer from './components/common/footer';
 
 const App = () => {
     return (
