@@ -1,6 +1,6 @@
-# Real-Time Chat Application
+# Collabrative code editor
 
-A real-time chat application built using **React**, **Socket.io**, **Node.js**, and **Express**, with a focus on seamless communication and user-friendly design.
+A real-time Collabrative code editor application built using **React**, **Socket.io**, **Node.js**, and **Express**, with a focus on seamless communication and user-friendly design.
 
 ---
 
