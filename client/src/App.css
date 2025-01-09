@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+}
+
+.file-list, .file-editor {
+  margin: 2rem;
+}
+
+.file-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.file-list li a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.file-editor input, .file-editor textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.file-editor button {
+  background: #007BFF;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
