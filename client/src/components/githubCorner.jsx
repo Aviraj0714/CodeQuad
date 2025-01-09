@@ -1,4 +1,4 @@
-import { useSettings } from "@/context/SettingContext";
+import { useSettings } from "../context/settingContext";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 function GitHubCorner() {

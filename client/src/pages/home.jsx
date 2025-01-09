@@ -1,5 +1,5 @@
 import React from 'react';
-import FileList from '../components/filelist';
+import FileList from '../components';
 
 const HomePage = () => {
     return (

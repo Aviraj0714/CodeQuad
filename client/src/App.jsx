@@ -1,22 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/home';
-import EditorPage from './pages/editorpage';
-import Navbar from './components/navbar';
-import Footer from './components/common/footer';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import GitHubCorner from "./components/githubCorner";
+import Toast from "./components/toast/Toast";
+import EditorPage from "./pages/EditorPage";
+import HomePage from "./pages/home";
 
 const App = () => {
     return (
-        <Router>
-            <div className="app">
-                <Navbar />
+        <>
+            <Router>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/editor/:id" element={<EditorPage />} />
+                    <Route path="/editor/:roomId" element={<EditorPage />} />
                 </Routes>
-                <Footer />
-            </div>
-        </Router>
+            </Router>
+            <Toast /> {/* Toast component from react-hot-toast */}
+            <GitHubCorner />
+        </>
     );
 };
 
