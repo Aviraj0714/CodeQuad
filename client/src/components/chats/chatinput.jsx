@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import { useAppContext } from "../context/AppContext";
-import { useChatRoom } from "../context/ChatContext";
-import { useSocket } from "../context/SocketContext";
+import { useAppContext } from "../../context/appContext";
+import { useChatRoom } from "../../context/chatContext";
+import { useSocket } from "../../context/socketContext";
 import { formatDate } from "../utils/formatDate";
 import { LuSendHorizontal } from "react-icons/lu";
 import { v4 as uuidV4 } from "uuid";

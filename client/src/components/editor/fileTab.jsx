@@ -1,5 +1,5 @@
 import { useFileSystem } from "../../context/filecontext"
-import { getIconClassName } from "@/utils/getIconClassName"
+import { getIconClassName } from "../../utils/geticonname"
 import { Icon } from "@iconify/react"
 import { IoClose } from "react-icons/io5"
 import cn from "classnames"

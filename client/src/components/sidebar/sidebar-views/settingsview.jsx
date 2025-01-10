@@ -1,10 +1,10 @@
-import Select from "@/components/common/Select"
-import { useSettings } from "@/context/SettingContext"
-import useResponsive from "@/hooks/useResponsive"
-import { editorFonts } from "@/resources/Fonts"
-import { editorThemes } from "@/resources/Themes"
-import { langNames } from "@uiw/codemirror-extensions-langs"
-import { ChangeEvent, useEffect } from "react"
+import Select from "@/components/common/Select";
+import { useSettings } from "@/context/SettingContext";
+import useResponsive from "@/hooks/useResponsive";
+import { editorFonts } from "@/resources/Fonts";
+import { editorThemes } from "@/resources/Themes";
+import { langNames } from "@uiw/codemirror-extensions-langs";
+import { useEffect } from "react";
 
 function SettingsView() {
     const {
@@ -19,35 +19,25 @@ function SettingsView() {
         showGitHubCorner,
         setShowGitHubCorner,
         resetSettings,
-    } = useSettings()
-    const { viewHeight } = useResponsive()
+    } = useSettings();
+    const { viewHeight } = useResponsive();
 
-    const handleFontFamilyChange = (e: ChangeEvent<HTMLSelectElement>) =>
-        setFontFamily(e.target.value)
-    const handleThemeChange = (e: ChangeEvent<HTMLSelectElement>) =>
-        setTheme(e.target.value)
-    const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) =>
-        setLanguage(e.target.value)
-    const handleFontSizeChange = (e: ChangeEvent<HTMLSelectElement>) =>
-        setFontSize(parseInt(e.target.value))
-    const handleShowGitHubCornerChange = (e: ChangeEvent<HTMLInputElement>) =>
-        setShowGitHubCorner(e.target.checked)
+    const handleFontFamilyChange = (e) => setFontFamily(e.target.value);
+    const handleThemeChange = (e) => setTheme(e.target.value);
+    const handleLanguageChange = (e) => setLanguage(e.target.value);
+    const handleFontSizeChange = (e) => setFontSize(parseInt(e.target.value));
+    const handleShowGitHubCornerChange = (e) => setShowGitHubCorner(e.target.checked);
 
     useEffect(() => {
         // Set editor font family
-        const editor = document.querySelector(
-            ".cm-editor > .cm-scroller",
-        ) as HTMLElement
+        const editor = document.querySelector(".cm-editor > .cm-scroller");
         if (editor !== null) {
-            editor.style.fontFamily = `${fontFamily}, monospace`
+            editor.style.fontFamily = `${fontFamily}, monospace`;
         }
-    }, [fontFamily])
+    }, [fontFamily]);
 
     return (
-        <div
-            className="flex flex-col items-center gap-2 p-4"
-            style={{ height: viewHeight }}
-        >
+        <div className="flex flex-col items-center gap-2 p-4" style={{ height: viewHeight }}>
             <h1 className="view-title">Settings</h1>
             {/* Choose Font Family option */}
             <div className="flex w-full items-end gap-2">
@@ -69,7 +59,7 @@ function SettingsView() {
                             <option key={size} value={size + 12}>
                                 {size + 12}
                             </option>
-                        )
+                        );
                     })}
                 </select>
             </div>
@@ -107,7 +97,7 @@ function SettingsView() {
                 Reset to default
             </button>
         </div>
-    )
+    );
 }
 
-export default SettingsView
+export default SettingsView;
