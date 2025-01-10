@@ -1,7 +1,7 @@
-import { useAppContext } from "@/context/AppContext";
-import { useSocket } from "@/context/SocketContext";
-import useWindowDimensions from "@/hooks/useWindowDimensions";
-import { SocketEvent } from "@/types/socket";
+import { useAppContext } from "../../context/appContext";
+import { useSocket } from "../../context/socketContext";
+import useWindowDimensions from "../../hooks/useWindowDimension";
+import { SocketEvent } from "../../types/socket";
 import { useCallback, useEffect } from "react";
 import { HistoryEntry, RecordsDiff, TLRecord, Tldraw, useEditor } from "tldraw";
 

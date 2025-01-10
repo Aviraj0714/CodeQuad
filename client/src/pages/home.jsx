@@ -1,5 +1,5 @@
-import illustration from "@/assets/illustration.svg";
-import FormComponent from "@/components/forms/FormComponent";
+import illustration from "../assets/react.svg";
+import FormComponent from "../components/forms/formComponent";
 
 function HomePage() {
     return (

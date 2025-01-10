@@ -13,7 +13,7 @@ import { LanguageName, loadLanguage } from "@uiw/codemirror-extensions-langs"
 import CodeMirror, { Extension, ViewUpdate, scrollPastEnd } from "@uiw/react-codemirror"
 import { useEffect, useMemo, useState } from "react"
 import toast from "react-hot-toast"
-import { cursorTooltipBaseTheme, tooltipField } from "./tooltip"
+import { cursorTooltipBaseTheme, tooltipField } from "./toolpit"
 
 const Editor = () => {
     const { users, currentUser } = useAppContext()

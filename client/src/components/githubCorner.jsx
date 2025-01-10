@@ -1,5 +1,5 @@
 import { useSettings } from "../context/settingContext";
-import useWindowDimensions from "@/hooks/useWindowDimensions";
+import useWindowDimensions from "../hooks/useWindowDimension";
 
 function GitHubCorner() {
     const { showGitHubCorner } = useSettings();

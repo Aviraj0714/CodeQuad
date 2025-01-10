@@ -1,5 +1,5 @@
 function useLocalStorage(namespace = "") {
-    const setItem = (key: string, value: any) => {
+    const setItem = (key, value) => {
         try {
             const namespacedKey = `${namespace}${key}`;
             const stringValue =
@@ -10,7 +10,7 @@ function useLocalStorage(namespace = "") {
         }
     };
 
-    const getItem = (key: string): any => {
+    const getItem = (key) => {
         try {
             const namespacedKey = `${namespace}${key}`;
             const value = localStorage.getItem(namespacedKey);
@@ -21,7 +21,7 @@ function useLocalStorage(namespace = "") {
         }
     };
 
-    const removeItem = (key: string) => {
+    const removeItem = (key) => {
         try {
             const namespacedKey = `${namespace}${key}`;
             localStorage.removeItem(namespacedKey);

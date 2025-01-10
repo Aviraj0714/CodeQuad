@@ -1,4 +1,4 @@
-import useLocalStorage from "@/hooks/useLocalStorage"
+import useLocalStorage from "../hooks/useLocalstorage"
 import { ReactNode, createContext, useContext, useEffect, useState } from "react"
 
 const SettingContext = createContext(null)

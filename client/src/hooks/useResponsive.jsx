@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useWindowDimensions from "./useWindowDimensions";
+import useWindowDimensions from "./useWindowDimension";
 
 // Adjust layout responsiveness, especially for mobile devices
 function useResponsive() {

@@ -1,4 +1,4 @@
-import { useFileSystem } from "@/context/FileContext"
+import { useFileSystem } from "../../context/filecontext"
 import { getIconClassName } from "@/utils/getIconClassName"
 import { Icon } from "@iconify/react"
 import { IoClose } from "react-icons/io5"
