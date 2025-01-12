@@ -1,4 +1,4 @@
-import axiosInstance from "@/api/"
+import axiosInstance from "axios"
 import langMap from "lang-map"
 import { ReactNode, createContext, useContext, useEffect, useState } from "react"
 import toast from "react-hot-toast"

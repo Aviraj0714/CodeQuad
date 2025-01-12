@@ -1,12 +1,11 @@
-import { useRunCode } from "../../../context/runcodeContext"
-import useResponsive from "../../../hooks/useResponsive"
-import { ChangeEvent } from "react"
-import toast from "react-hot-toast"
-import { LuCopy } from "react-icons/lu"
-import { PiCaretDownBold } from "react-icons/pi"
+import { useRunCode } from "../../../context/runcodeContext";
+import useResponsive from "../../../hooks/useResponsive";
+import toast from "react-hot-toast";
+import { LuCopy } from "react-icons/lu";
+import { PiCaretDownBold } from "react-icons/pi";
 
 function RunView() {
-    const { viewHeight } = useResponsive()
+    const { viewHeight } = useResponsive();
     const {
         setInput,
         output,
@@ -15,17 +14,17 @@ function RunView() {
         selectedLanguage,
         setSelectedLanguage,
         runCode,
-    } = useRunCode()
+    } = useRunCode();
 
-    const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        const lang = JSON.parse(e.target.value)
-        setSelectedLanguage(lang)
-    }
+    const handleLanguageChange = (e) => {
+        const lang = JSON.parse(e.target.value);
+        setSelectedLanguage(lang);
+    };
 
     const copyOutput = () => {
-        navigator.clipboard.writeText(output)
-        toast.success("Output copied to clipboard")
-    }
+        navigator.clipboard.writeText(output);
+        toast.success("Output copied to clipboard");
+    };
 
     return (
         <div
@@ -53,7 +52,7 @@ function RunView() {
                                                 ? ` (${lang.version})`
                                                 : "")}
                                     </option>
-                                )
+                                );
                             })}
                     </select>
                     <PiCaretDownBold
@@ -63,7 +62,7 @@ function RunView() {
                 </div>
                 <textarea
                     className="min-h-[120px] w-full resize-none rounded-md border-none bg-darkHover p-2 text-white outline-none"
-                    placeholder="Write you input here..."
+                    placeholder="Write your input here..."
                     onChange={(e) => setInput(e.target.value)}
                 />
                 <button
@@ -89,7 +88,7 @@ function RunView() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default RunView
+export default RunView;

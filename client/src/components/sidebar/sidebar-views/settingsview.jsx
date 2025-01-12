@@ -1,8 +1,8 @@
-import Select from "@/components/common/Select";
-import { useSettings } from "@/context/SettingContext";
-import useResponsive from "@/hooks/useResponsive";
-import { editorFonts } from "@/resources/Fonts";
-import { editorThemes } from "@/resources/Themes";
+import Select from "../../common/select";
+import { useSettings } from "../../../context/settingContext";
+import useResponsive from "../../../hooks/useResponsive";
+import { editorFonts } from "../../../resources/fonts";
+import { editorThemes } from "../../../resources/theme";
 import { langNames } from "@uiw/codemirror-extensions-langs";
 import { useEffect } from "react";
 

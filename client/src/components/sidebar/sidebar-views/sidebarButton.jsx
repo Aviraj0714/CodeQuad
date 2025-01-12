@@ -1,10 +1,10 @@
-import { useChatRoom } from "@/context/ChatContext";
-import { useViews } from "@/context/ViewContext";
-import { VIEWS } from "@/types/view";
+import { useChatRoom } from "../../../context/chatContext";
+import { useViews } from "../../../context/viewcontext";
+import { VIEWS } from "../../../types/views";
 import { Tooltip } from 'react-tooltip';
 import { useState, useEffect } from 'react';
 import { tooltipStyles, buttonStyles } from "../tooltipStyles";
-import useWindowDimensions from "@/hooks/useWindowDimensions";
+import useWindowDimensions from "../../../hooks/useWindowDimension";
 
 const ViewButton = ({ viewName, icon }) => {
     const { activeView, setActiveView, isSidebarOpen, setIsSidebarOpen } = useViews();
