@@ -1,5 +1,5 @@
 {
-	"name": "code-sync-server",
+	"name": "codequad-server",
 	"version": "1.0.0",
 	"description": "",
 	"main": "dist/server.js",
@@ -13,6 +13,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"code-sync-server": "file:",
+		"codequad-server": "file:",
 		"cors": "^2.8.5",
 		"dotenv": "^16.3.1",
 		"express": "^4.21.2",
