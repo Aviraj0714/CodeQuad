@@ -4,7 +4,8 @@ enum VIEWS {
     CLIENTS = "CLIENTS",
     RUN = "RUN",
     SETTINGS = "SETTINGS",
-    TASKBOARD = "TASKBOARD", // Added TaskBoard
+    TASKBOARD = "TASKBOARD",
+   
 }
 
 interface ViewContext {
