@@ -19,10 +19,13 @@ const StyledWrapper = styled.div`
   align-items: center;
   height: 100vh;
   background-color: #1A1A1A;
+  padding: 20px;
 
   .loader {
-    font-size: 6em;
+    font-size: 6vw; /* Responsive font size */
     font-weight: 900;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .loader > * {
@@ -47,6 +50,21 @@ const StyledWrapper = styled.div`
     50% {
       opacity: 1;
       letter-spacing: 0em;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .loader {
+      font-size: 8vw;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .loader {
+      font-size: 10vw;
+      flex-direction: column;
+      align-items: center;
     }
   }
 `;
