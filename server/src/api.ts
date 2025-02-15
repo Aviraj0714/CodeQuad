@@ -6,16 +6,25 @@ import { SocketEvent, SocketId } from "./types/socket"
 import { USER_CONNECTION_STATUS, User } from "./types/user"
 import { Server } from "socket.io"
 import path from "path"
-
 dotenv.config()
 
 const app = express()
 
+async function loadRoutes() {
+	const airoutes = await import('./routes/ai.routes');
+	app.use('/ai', airoutes.default);
+}
+
+loadRoutes();
+
 app.use(express.json())
+
+
 
 app.use(cors())
 
 app.use(express.static(path.join(__dirname, "public"))) // Serve static files
+
 
 const server = http.createServer(app)
 const io = new Server(server, {

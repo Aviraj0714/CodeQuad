@@ -10,7 +10,9 @@ import { ReactNode, createContext, useContext, useState } from "react"
 import { IoSettingsOutline } from "react-icons/io5"
 import { LuFiles } from "react-icons/lu"
 import { PiChats, PiPlay, PiUsers } from "react-icons/pi"
-import { TbLayoutBoardSplit } from "react-icons/tb" // New Icon!
+import { TbLayoutBoardSplit } from "react-icons/tb" 
+import { AiOutlineCode } from "react-icons/ai";// New Icon!
+import Review from "@/components/review"
 
 const ViewContext = createContext<ViewContextType | null>(null)
 
@@ -32,7 +34,8 @@ function ViewContextProvider({ children }: { children: ReactNode }) {
         [VIEWS.SETTINGS]: <SettingsView />,
         [VIEWS.CHATS]: <ChatsView />,
         [VIEWS.RUN]: <RunView />,
-        [VIEWS.TASKBOARD]: <TaskBoard /> // Added TaskBoard
+        [VIEWS.TASKBOARD]: <TaskBoard />,
+        [VIEWS.REVIEW]:<Review/>, // Added TaskBoard
     })
     const [viewIcons] = useState({
         [VIEWS.FILES]: <LuFiles size={28} />,
@@ -40,7 +43,8 @@ function ViewContextProvider({ children }: { children: ReactNode }) {
         [VIEWS.SETTINGS]: <IoSettingsOutline size={28} />,
         [VIEWS.CHATS]: <PiChats size={30} />,
         [VIEWS.RUN]: <PiPlay size={28} />,
-        [VIEWS.TASKBOARD]: <TbLayoutBoardSplit size={28} /> // Icon for TaskBoard
+        [VIEWS.TASKBOARD]: <TbLayoutBoardSplit size={28} /> ,
+        [VIEWS.REVIEW]:<AiOutlineCode size={28}/>// Icon for TaskBoard
     })
 
     return (

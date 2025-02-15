@@ -77,7 +77,10 @@ function Sidebar() {
                 viewName={VIEWS.TASKBOARD}
                 icon={viewIcons[VIEWS.TASKBOARD]}
                 />
-
+                <SidebarButton
+                viewName={VIEWS.REVIEW}
+                    icon={viewIcons[VIEWS.REVIEW]}
+/>
                 {/* Button to change activity state coding or drawing */}
                 <div className="flex items-center justify-center h-fit">
                     <button className="flex items-center justify-cente  rounded transition-colors duration-200 ease-in-out hover:bg-[#3D404A] p-1.5"

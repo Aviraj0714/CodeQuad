@@ -5,6 +5,7 @@ enum VIEWS {
     RUN = "RUN",
     SETTINGS = "SETTINGS",
     TASKBOARD = "TASKBOARD",
+    REVIEW = "REVIEW",
    
 }
 
