@@ -9,7 +9,7 @@ import axios from 'axios';
 import './review.css';
 
 function Review() {
-  const [code, setCode] = useState(`function sum() {\n  return 1 + 1;\n}`);
+  const [code, setCode] = useState(`Write code Here`);
   const [review, setReview] = useState("");
   const [loading, setLoading] = useState(false); // 👈 Loading state
 
