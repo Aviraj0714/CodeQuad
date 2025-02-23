@@ -6,6 +6,7 @@ enum VIEWS {
     SETTINGS = "SETTINGS",
     TASKBOARD = "TASKBOARD",
     REVIEW = "REVIEW",
+    ApiGenerator="APIGENRATOR"
    
 }
 
