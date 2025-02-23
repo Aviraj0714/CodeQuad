@@ -35,7 +35,7 @@ const ApiGenerator = () => {
   };
 
   // Toggle middleware options
-  const toggleMiddleware = (key: string) => {
+  const toggleMiddleware = (key: keyof typeof middleware) => {
     setMiddleware({ ...middleware, [key]: !middleware[key] });
   };
 
@@ -71,8 +71,9 @@ const ApiGenerator = () => {
         <h1 className="text-2xl font-bold mb-4">API Generator</h1>
 
         {/* Backend Language Selection */}
-        <label className="block text-sm mb-1">Backend Language:</label>
+        <label className="block text-sm mb-1" htmlFor="backend-language">Backend Language:</label>
         <select
+          id="backend-language"
           className="w-full p-2 mb-4 bg-gray-700 text-white rounded-lg"
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
@@ -86,8 +87,8 @@ const ApiGenerator = () => {
           <label key={key} className="block mt-2">
             <input
               type="checkbox"
-              checked={middleware[key]}
-              onChange={() => toggleMiddleware(key)}
+              checked={middleware[key as keyof typeof middleware]}
+              onChange={() => toggleMiddleware(key as keyof typeof middleware)}
             />{" "}
             {key.toUpperCase()}
           </label>
@@ -95,7 +96,9 @@ const ApiGenerator = () => {
 
         {/* Database Selection */}
         <h2 className="text-xl font-semibold mt-4">Database</h2>
+        <label className="block text-sm mb-1" htmlFor="database-select">Select Database:</label>
         <select
+          id="database-select"
           className="w-full p-2 bg-gray-700 text-white rounded-lg"
           value={database}
           onChange={(e) => setDatabase(e.target.value)}
@@ -144,7 +147,9 @@ const ApiGenerator = () => {
               value={route.path}
               onChange={(e) => updateRoute(index, "path", e.target.value)}
             />
+            <label htmlFor={`method-select-${index}`} className="sr-only">Method</label>
             <select
+              id={`method-select-${index}`}
               className="p-2 bg-gray-700 text-white rounded-lg"
               value={route.method}
               onChange={(e) => updateRoute(index, "method", e.target.value)}
