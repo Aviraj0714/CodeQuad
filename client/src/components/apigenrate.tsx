@@ -20,6 +20,7 @@ const ApiGenerator = () => {
   const [databaseName, setDatabaseName] = useState("");
   const [mongoURI, setMongoURI] = useState("");
   const [generatedCode, setGeneratedCode] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // Add a new route
   const addRoute = () => {
@@ -40,8 +41,9 @@ const ApiGenerator = () => {
 
   // Generate API Code
   const generateAPI = async () => {
+    setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/generate-api", {
+      const response = await axios.post("https://apigenrator.onrender.com/generate-api", {
         routes,
         language,
         middleware,
@@ -52,17 +54,19 @@ const ApiGenerator = () => {
       setGeneratedCode(response.data.code);
     } catch (error) {
       console.error("Error generating API:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen p-4 gap-4">
+    <div className="flex flex-col md:flex-row h-screen overflow-auto p-4 gap-4">
       {/* Left Section: Form */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full md:w-1/2 p-4 bg-gray-900 text-white rounded-xl shadow-lg"
+        className="w-full md:w-1/2 p-4 bg-gray-900 text-white rounded-xl shadow-lg overflow-auto h-[90vh]"
       >
         <h1 className="text-2xl font-bold mb-4">API Generator</h1>
 
@@ -159,11 +163,15 @@ const ApiGenerator = () => {
         >
           Add Route
         </button>
+
         <button
-          className="mt-2 p-2 w-full bg-green-500 rounded-lg text-white"
+          className={`mt-2 p-2 w-full rounded-lg text-white ${
+            isLoading ? "bg-gray-500 cursor-not-allowed" : "bg-green-500"
+          }`}
           onClick={generateAPI}
+          disabled={isLoading}
         >
-          Generate API
+          {isLoading ? "Generating..." : "Generate API"}
         </button>
       </motion.div>
 
@@ -172,15 +180,21 @@ const ApiGenerator = () => {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full md:w-1/2 p-4 bg-gray-900 text-white rounded-xl shadow-lg"
+        className="w-full md:w-1/2 p-4 bg-gray-900 text-white rounded-xl shadow-lg overflow-auto h-[90vh]"
       >
         <h2 className="text-2xl font-bold mb-4">Generated Code</h2>
-        <CodeMirror
-          value={generatedCode}
-          extensions={[javascript()]}
-          theme={vscodeDark}
-          className="rounded-lg overflow-hidden border border-gray-700"
-        />
+        {isLoading ? (
+          <div className="flex justify-center items-center h-full">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-300"></div>
+          </div>
+        ) : (
+          <CodeMirror
+            value={generatedCode}
+            extensions={[javascript()]}
+            theme={vscodeDark}
+            className="rounded-lg overflow-hidden border border-gray-700"
+          />
+        )}
       </motion.div>
     </div>
   );
