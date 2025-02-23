@@ -13,7 +13,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { LuCodepen, LuFiles } from "react-icons/lu";
 import { PiChats, PiPlay, PiUsers } from "react-icons/pi";
 import { TbLayoutBoardSplit } from "react-icons/tb";
-import { AiOutlineCode, AiOutlineSound } from "react-icons/ai"; // New Icon for Audio Summary
+ // New Icon for Audio Summary
 import ApiGenerator from "@/components/apigenrate";
 
 
