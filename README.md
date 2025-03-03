@@ -67,7 +67,7 @@ The **API Generator** in CodeQuad helps developers quickly create API endpoints 
 
 Below is a **flowchart representation of CodeQuad's workflow**:  
 
-![CodeQuad Flowchart](client\public\diagram-export-3-4-2025-12_21_14-AM.png)  
+![CodeQuad Flowchart](https://github.com/Aviraj0714/CodeQuad/blob/3ae30f73a6a4a3cfda3b7a6f85bf9d0bf491855e/client/public/diagram-export-3-4-2025-12_21_14-AM.png)  
 
 This diagram provides a **visual overview of CodeQuad's features and interactions**, including:  
 - **File Structure Management**  
