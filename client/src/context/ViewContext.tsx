@@ -11,10 +11,12 @@ import { VIEWS, ViewContext as ViewContextType } from "@/types/view";
 import { ReactNode, createContext, useContext, useState } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuCodepen, LuFiles } from "react-icons/lu";
-import { PiChats, PiPlay, PiUsers } from "react-icons/pi";
+import { PiChats, PiPlay, PiUsers,PiStackBold } from "react-icons/pi";
 import { TbLayoutBoardSplit } from "react-icons/tb";
 import { AiOutlineCode} from "react-icons/ai"; // New Icon for Audio Summary
 import ApiGenerator from "@/components/apigenrate";
+import Frameforge from "@/components/frameforge";
+import { FaCubes } from "react-icons/fa";
 
 
 const ViewContext = createContext<ViewContextType | null>(null);
@@ -40,7 +42,8 @@ function ViewContextProvider({ children }: { children: ReactNode }) {
     [VIEWS.TASKBOARD]: <TaskBoard />,
     [VIEWS.REVIEW]: <Review />, // Review View
      // New Audio Summary View
-     [VIEWS.ApiGenerator]:<ApiGenerator />
+     [VIEWS.ApiGenerator]:<ApiGenerator />,
+     [VIEWS.Frameforge]:<Frameforge/>
   });
 
   const [viewIcons] = useState({
@@ -52,7 +55,8 @@ function ViewContextProvider({ children }: { children: ReactNode }) {
     [VIEWS.TASKBOARD]: <TbLayoutBoardSplit size={28} />,
     [VIEWS.REVIEW]: <AiOutlineCode size={28} />, // Icon for Review
    // [VIEWS.AUDIOSUMMARY]: <AiOutlineSound size={28} />, // New Icon for Audio Summary
-   [VIEWS.ApiGenerator]:<LuCodepen size={28} />
+   [VIEWS.ApiGenerator]:<LuCodepen size={28} />,
+   [VIEWS.Frameforge]:<PiStackBold size={28} />
   });
 
   return (

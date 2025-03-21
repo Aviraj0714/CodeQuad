@@ -6,7 +6,8 @@ enum VIEWS {
     SETTINGS = "SETTINGS",
     TASKBOARD = "TASKBOARD",
     REVIEW = "REVIEW",
-    ApiGenerator="APIGENRATOR"
+    ApiGenerator="APIGENRATOR",
+    Frameforge="FrameForge"
    
 }
 

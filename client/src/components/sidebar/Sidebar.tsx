@@ -85,6 +85,11 @@ function Sidebar() {
                 viewName={VIEWS.ApiGenerator}
                 icon={viewIcons[VIEWS.ApiGenerator]}
                 />
+                <SidebarButton
+                viewName={VIEWS.Frameforge}
+                icon={viewIcons[VIEWS.Frameforge]}
+                />
+
 
                 
                 
