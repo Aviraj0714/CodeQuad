@@ -10,7 +10,7 @@ const App = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setLoading(false), 4000); // Show loader for 2 seconds
+        setTimeout(() => setLoading(false), 1000); // Show loader for 2 seconds
     }, []);
 
     if (loading) {
