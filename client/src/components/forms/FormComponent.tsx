@@ -6,6 +6,7 @@ import { ChangeEvent, FormEvent, useEffect, useRef } from "react"
 import { toast } from "react-hot-toast"
 import { useLocation, useNavigate } from "react-router-dom"
 import { v4 as uuidv4 } from "uuid"
+import { motion } from "framer-motion"
 import logo from "@/assets/logo.png"
 
 const FormComponent = () => {
@@ -36,7 +37,7 @@ const FormComponent = () => {
             toast.error("Enter a room id")
             return false
         } else if (currentUser.roomId.trim().length < 5) {
-            toast.error("ROOM Id must be at least 5 characters long")
+            toast.error("Room ID must be at least 5 characters long")
             return false
         } else if (currentUser.username.trim().length < 3) {
             toast.error("Username must be at least 3 characters long")
@@ -89,40 +90,72 @@ const FormComponent = () => {
     }, [currentUser, location.state?.redirect, navigate, setStatus, socket, status])
 
     return (
-        <div className="flex w-full max-w-[500px] flex-col items-center justify-center gap-4 p-4 sm:w-[500px] sm:p-8">
-            <img src={logo} alt="Logo" className="w-[80%] h-[80%]"/>
+        <motion.div 
+            className="flex w-full max-w-lg flex-col items-center gap-8 p-8 bg-[#121826] rounded-2xl shadow-lg border border-gray-700 backdrop-blur-lg"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+            {/* Logo */}
+            <motion.img 
+                src={logo} 
+                alt="CodeQuad Logo" 
+                className="w-32 h-32" 
+                initial={{ opacity: 0, scale: 0.8 }} 
+                animate={{ opacity: 1, scale: 1 }} 
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} 
+            />
+            
+            <h2 className="text-xl font-bold text-center text-white tracking-wide">
+                Join a Code Room
+            </h2>
+
+            {/* Form */}
             <form onSubmit={joinRoom} className="flex w-full flex-col gap-4">
-                <input
+                <motion.input
                     type="text"
                     name="roomId"
-                    placeholder="Room Id"
-                    className="w-full rounded-md border border-gray-500 bg-darkHover px-3 py-3 focus:outline-none"
+                    placeholder="Enter Room ID"
+                    className="w-full rounded-lg border border-gray-600 bg-[#1A2333] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all shadow-md"
                     onChange={handleInputChanges}
                     value={currentUser.roomId}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                 />
-                <input
+                <motion.input
                     type="text"
                     name="username"
-                    placeholder="Username"
-                    className="w-full rounded-md border border-gray-500 bg-darkHover px-3 py-3 focus:outline-none"
+                    placeholder="Enter Username"
+                    className="w-full rounded-lg border border-gray-600 bg-[#1A2333] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all shadow-md"
                     onChange={handleInputChanges}
                     value={currentUser.username}
                     ref={usernameRef}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                 />
-                <button
+
+                {/* Join Button */}
+                <motion.button
                     type="submit"
-                    className="mt-2 w-full rounded-md bg-[#863BCB] px-8 py-3 text-lg font-semibold text-black"
+                    className="w-full rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 px-6 py-3 text-lg font-semibold text-white transition-transform transform hover:scale-105 active:scale-95 shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                 >
-                    Join
-                </button>
+                    Join Room
+                </motion.button>
             </form>
-            <button
-                className="cursor-pointer select-none underline"
+
+            {/* Generate Room ID */}
+            <motion.button
+                className="mt-2 text-purple-400 hover:text-purple-300 transition-all underline"
                 onClick={createNewRoomId}
+                whileHover={{ scale: 1.1 }}
             >
-                Generate Unique Room Id
-            </button>
-        </div>
+                Generate Unique Room ID
+            </motion.button>
+        </motion.div>
     )
 }
 
