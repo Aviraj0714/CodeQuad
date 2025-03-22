@@ -5,9 +5,10 @@ const Loader: React.FC = () => {
   return (
     <StyledWrapper>
       <div className="loader">
-        <span>&lt;</span>
-        <span>LOADING...</span>
-        <span>/&gt;</span>
+        <span className="bracket">&lt;</span>
+        <span className="text">LOADING</span>
+        <span className="dots">...</span>
+        <span className="bracket">/&gt;</span>
       </div>
     </StyledWrapper>
   );
@@ -18,38 +19,60 @@ const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1A1A1A;
+  background: radial-gradient(circle at center, #1e1e2f, #12121a);
   padding: 20px;
 
   .loader {
-    font-size: 6vw; /* Responsive font size */
-    font-weight: 900;
-    text-align: center;
-    white-space: nowrap;
+    font-size: 5vw;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    text-transform: uppercase;
+    animation: float 3s infinite ease-in-out;
   }
 
-  .loader > * {
-    color: #863BCB;
+  .bracket {
+    color: #ff4da6;
+    text-shadow: 0 0 10px #ff4da6;
   }
 
-  .loader span {
-    display: inline-flex;
+  .text {
+    color: #00eaff;
+    text-shadow: 0 0 15px #00eaff;
+    animation: glow 1.5s infinite alternate;
   }
 
-  .loader span:nth-child(2) {
-    letter-spacing: -1em;
-    overflow: hidden;
-    animation: reveal 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+  .dots {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+    animation: blink 1.5s infinite alternate;
   }
 
-  @keyframes reveal {
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #00eaff;
+    }
+    to {
+      text-shadow: 0 0 20px #00eaff;
+    }
+  }
+
+  @keyframes blink {
     0%, 100% {
-      opacity: 0.5;
-      letter-spacing: -1em;
+      opacity: 1;
     }
     50% {
-      opacity: 1;
-      letter-spacing: 0em;
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
     }
   }
 
@@ -57,6 +80,7 @@ const StyledWrapper = styled.div`
   @media (max-width: 768px) {
     .loader {
       font-size: 8vw;
+      gap: 1vw;
     }
   }
 
@@ -64,7 +88,7 @@ const StyledWrapper = styled.div`
     .loader {
       font-size: 10vw;
       flex-direction: column;
-      align-items: center;
+      text-align: center;
     }
   }
 `;

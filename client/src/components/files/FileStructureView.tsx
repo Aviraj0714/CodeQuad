@@ -56,26 +56,26 @@ function FileStructureView() {
     const sortedFileStructure = sortFileSystemItem(fileStructure)
 
     return (
-        <div onClick={handleClickOutside} className="flex flex-grow flex-col">
-            <div className="view-title flex justify-between">
-                <h2>Files</h2>
-                <div className="flex gap-2">
+        <div onClick={handleClickOutside} className="flex flex-grow flex-col bg-gray-900 text-gray-100">
+            <div className="view-title flex items-center justify-between border-b border-gray-700 p-4">
+                <h2 className="text-xl font-semibold text-gray-100">Files</h2>
+                <div className="flex gap-3">
                     <button
-                        className="rounded-md px-1 hover:bg-darkHover"
+                        className="rounded-md p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-100"
                         onClick={handleCreateFile}
                         title="Create File"
                     >
                         <RiFileAddLine size={20} />
                     </button>
                     <button
-                        className="rounded-md px-1 hover:bg-darkHover"
+                        className="rounded-md p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-100"
                         onClick={handleCreateDirectory}
                         title="Create Directory"
                     >
                         <RiFolderAddLine size={20} />
                     </button>
                     <button
-                        className="rounded-md px-1 hover:bg-darkHover"
+                        className="rounded-md p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-100"
                         onClick={collapseDirectories}
                         title="Collapse All Directories"
                     >
@@ -85,7 +85,7 @@ function FileStructureView() {
             </div>
             <div
                 className={cn(
-                    "min-h-[200px] flex-grow overflow-auto pr-2 sm:min-h-0",
+                    "min-h-[200px] flex-grow overflow-auto p-4 sm:min-h-0",
                     {
                         "h-[calc(80vh-170px)]": !minHeightReached,
                         "h-[85vh]": minHeightReached,
@@ -142,23 +142,17 @@ function Directory({
         }
     }
 
-    // Add F2 key event listener to directory for renaming
     useEffect(() => {
         const dirNode = dirRef.current
-
         if (!dirNode) return
-
         dirNode.tabIndex = 0
-
         const handleF2 = (e: KeyboardEvent) => {
             e.stopPropagation()
             if (e.key === "F2") {
                 setEditing(true)
             }
         }
-
         dirNode.addEventListener("keydown", handleF2)
-
         return () => {
             dirNode.removeEventListener("keydown", handleF2)
         }
@@ -171,14 +165,14 @@ function Directory({
     return (
         <div className="overflow-x-auto">
             <div
-                className="flex w-full items-center rounded-md px-2 py-1 hover:bg-darkHover"
+                className="group flex w-full cursor-pointer items-center rounded-md px-3 py-2 transition-colors hover:bg-gray-800"
                 onClick={() => handleDirClick(item.id)}
                 ref={dirRef}
             >
                 {item.isOpen ? (
-                    <AiOutlineFolderOpen size={24} className="mr-2 min-w-fit" />
+                    <AiOutlineFolderOpen size={24} className="mr-3 min-w-fit text-blue-400" />
                 ) : (
-                    <AiOutlineFolder size={24} className="mr-2 min-w-fit" />
+                    <AiOutlineFolder size={24} className="mr-3 min-w-fit text-blue-400" />
                 )}
                 {isEditing ? (
                     <RenameView
@@ -189,7 +183,7 @@ function Directory({
                     />
                 ) : (
                     <p
-                        className="flex-grow cursor-pointer overflow-hidden truncate"
+                        className="flex-grow overflow-hidden truncate text-gray-300 group-hover:text-gray-100"
                         title={item.name}
                     >
                         {item.name}
@@ -200,7 +194,7 @@ function Directory({
                 className={cn(
                     { hidden: !item.isOpen },
                     { block: item.isOpen },
-                    { "pl-4": item.name !== "root" },
+                    { "pl-6": item.name !== "root" },
                 )}
             >
                 {item.children &&
@@ -271,23 +265,17 @@ const File = ({
         }
     }
 
-    // Add F2 key event listener to file for renaming
     useEffect(() => {
         const fileNode = fileRef.current
-
         if (!fileNode) return
-
         fileNode.tabIndex = 0
-
         const handleF2 = (e: KeyboardEvent) => {
             e.stopPropagation()
             if (e.key === "F2") {
                 setEditing(true)
             }
         }
-
         fileNode.addEventListener("keydown", handleF2)
-
         return () => {
             fileNode.removeEventListener("keydown", handleF2)
         }
@@ -295,14 +283,14 @@ const File = ({
 
     return (
         <div
-            className="flex w-full items-center rounded-md px-2 py-1 hover:bg-darkHover"
+            className="group flex w-full cursor-pointer items-center rounded-md px-3 py-2 transition-colors hover:bg-gray-800"
             onClick={() => handleFileClick(item.id)}
             ref={fileRef}
         >
             <Icon
                 icon={getIconClassName(item.name)}
                 fontSize={22}
-                className="mr-2 min-w-fit"
+                className="mr-3 min-w-fit text-gray-400"
             />
             {isEditing ? (
                 <RenameView
@@ -313,14 +301,13 @@ const File = ({
                 />
             ) : (
                 <p
-                    className="flex-grow cursor-pointer overflow-hidden truncate"
+                    className="flex-grow overflow-hidden truncate text-gray-300 group-hover:text-gray-100"
                     title={item.name}
                 >
                     {item.name}
                 </p>
             )}
 
-            {/* Context Menu For File*/}
             {menuOpen && (
                 <FileMenu
                     top={coords.y}
@@ -349,7 +336,7 @@ const FileMenu = ({
 }) => {
     return (
         <div
-            className="absolute z-10 w-[150px] rounded-md border border-darkHover bg-dark p-1"
+            className="absolute z-10 w-[150px] rounded-lg border border-gray-700 bg-gray-800 p-1 shadow-lg"
             style={{
                 top,
                 left,
@@ -357,14 +344,14 @@ const FileMenu = ({
         >
             <button
                 onClick={handleRenameFile}
-                className="flex w-full items-center gap-2 rounded-md px-2 py-1 hover:bg-darkHover"
+                className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-gray-300 transition-colors hover:bg-gray-700 hover:text-gray-100"
             >
                 <PiPencilSimpleFill size={18} />
                 Rename
             </button>
             <button
                 onClick={(e) => handleDeleteFile(e, id)}
-                className="flex w-full items-center gap-2 rounded-md px-2 py-1 text-danger hover:bg-darkHover"
+                className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-red-400 transition-colors hover:bg-gray-700 hover:text-red-300"
             >
                 <MdDelete size={20} />
                 Delete
@@ -388,7 +375,7 @@ const DirectoryMenu = ({
 }) => {
     return (
         <div
-            className="absolute z-10 w-[150px] rounded-md border border-darkHover bg-dark p-1"
+            className="absolute z-10 w-[150px] rounded-lg border border-gray-700 bg-gray-800 p-1 shadow-lg"
             style={{
                 top,
                 left,
@@ -396,14 +383,14 @@ const DirectoryMenu = ({
         >
             <button
                 onClick={handleRenameDirectory}
-                className="flex w-full items-center gap-2 rounded-md px-2 py-1 hover:bg-darkHover"
+                className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-gray-300 transition-colors hover:bg-gray-700 hover:text-gray-100"
             >
                 <PiPencilSimpleFill size={18} />
                 Rename
             </button>
             <button
                 onClick={(e) => handleDeleteDirectory(e, id)}
-                className="flex w-full items-center gap-2 rounded-md px-2 py-1 text-danger hover:bg-darkHover"
+                className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-red-400 transition-colors hover:bg-gray-700 hover:text-red-300"
             >
                 <MdDelete size={20} />
                 Delete
