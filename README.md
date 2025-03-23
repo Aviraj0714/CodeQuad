@@ -13,7 +13,7 @@ CodeQuad is a **comprehensive code collaboration and analysis platform** designe
 - 📊 **Task Board** – Track progress with a built-in task management system.  
 - 🛠 **API Generator** – Automatically generate API endpoints for your project.  
 - ✏ **Drawing Mode** – Create and edit flowcharts or diagrams for better visualization.  
-- 🎙 **Audio Summary** – Convert code changes into audio summaries for better understanding.  
+  
 
 ---
 
