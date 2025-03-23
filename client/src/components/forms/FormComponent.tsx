@@ -91,7 +91,7 @@ const FormComponent = () => {
 
     return (
         <motion.div 
-            className="flex w-full max-w-lg flex-col items-center gap-8 p-8 bg-[#121826] rounded-2xl shadow-lg border border-gray-700 backdrop-blur-lg"
+            className="flex w-full max-w-lg flex-col items-center gap-8 p-2 bg-[#121826] rounded-2xl shadow-lg border border-gray-700 backdrop-blur-lg"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
