@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import illustration from "@/assets/illustration.svg";
+import illustration from "@/assets/Low code development-amico.svg";
 import FormComponent from "@/components/forms/FormComponent";
 
 function HomePage() {
@@ -21,7 +21,7 @@ function HomePage() {
                     <img 
                         src={illustration} 
                         alt="CodeQuad Illustration" 
-                        className="mx-auto w-[20px] sm:w-[400px] drop-shadow-2xl transition-transform hover:scale-105" 
+                        className="mx-auto w-[15px] sm:w-[400px] drop-shadow-2xl transition-transform hover:scale-105" 
                     />
                 </motion.div>
 
