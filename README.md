@@ -12,7 +12,8 @@ CodeQuad is a **comprehensive code collaboration and analysis platform** designe
 - 📁 **Project File Management** – Organize, edit, and delete project files easily.  
 - 📊 **Task Board** – Track progress with a built-in task management system.  
 - 🛠 **API Generator** – Automatically generate API endpoints for your project.  
-- ✏ **Drawing Mode** – Create and edit flowcharts or diagrams for better visualization.  
+- ✏ **Drawing Mode** – Create and edit flowcharts or diagrams for better visualization.
+- **FrameForge** – Genrate code from wireframe.
   
 
 ---
