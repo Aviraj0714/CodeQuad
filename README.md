@@ -7,7 +7,6 @@ CodeQuad is a **comprehensive code collaboration and analysis platform** designe
 ## 🌟 Features  
 
 - 🔍 **AI-Powered Code Review** – Get automated feedback on code quality and improvements.  
-- 🔄 **Version Control** – Manage code changes seamlessly with Git-based version control.  
 - 👥 **Collaboration Tools** – Invite team members, assign roles, and collaborate in real time.  
 - 📁 **Project File Management** – Organize, edit, and delete project files easily.  
 - 📊 **Task Board** – Track progress with a built-in task management system.  
@@ -47,7 +46,6 @@ Once CodeQuad is running, you can:
 
 ✅ **Manage your project files** – Create, edit, and delete files easily.  
 ✅ **Collaborate with your team** – Assign roles, invite members, and manage permissions.  
-✅ **Use version control** – Commit, push, pull, and track modifications seamlessly.  
 ✅ **Generate APIs** – Automatically create and manage APIs within the platform.  
 ✅ **Analyze your code** – Get AI-powered reviews and suggestions for improvement.  
 
