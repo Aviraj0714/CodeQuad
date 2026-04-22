@@ -2,7 +2,7 @@
 
 # 🚀 CodeQuad  
 
-CodeQuad is a **comprehensive code collaboration and analysis platform** designed to streamline development workflows. It provides **code review, version control, task management, and API generation** tools, making it an all-in-one solution for teams working on software projects.  
+CodeQuad is a **comprehensive code collaboration and analysis platform** designed to streamline development workflows. It provides **code review, task management, and API generation** tools, making it an all-in-one solution for teams working on software projects.  
 
 ## 🌟 Features  
 
